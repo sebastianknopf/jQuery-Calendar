@@ -1,7 +1,9 @@
 /*
-* jQuery-Calendar Plugin
+* jQuery-Calendar Plugin v1.1.0
 *
-* (c) Sebastian Knopf
+* 2018 (c) Sebastian Knopf
+* This software is licensed under the MIT license!
+* View LICENSE.md for more information
 */
 (function ($) {
 	
