@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery Calendar Sample</title>
+		<meta charset="utf-8" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="jquery.calendar.js"></script>
+		<link rel="stylesheet" href="jquery.calendar.css" />
+		<style>
+		* {font-family: arial;}
+		pre {font-family: Courier New;}
+		</style>
+	</head>
+	<body>
+		<section style="width:400px;margin:auto;">
+			<h1>Simple Calendar</h1>
+			<p>simply embedded calendar widget without any options</p>
+			<div id="pnlSimpleCalendar" style="width:100%;"></div>
+			<script>
+			$(function () {
+				$('#pnlSimpleCalendar').calendar();
+			});
+			</script>
+			<h1>Select Event</h1>
+			<p>calendar widget with assigned <i>onSelect</i> event</p>
+			<div id="pnlEventCalendar" style="width:100%;"></div>
+			<p>selected date: <b><span id="lblEventCalendar">[date]</span></b></p>
+			<script>
+			$(function () {
+				$('#pnlEventCalendar').calendar({onSelect: function (event) {
+					$('#lblEventCalendar').text(event.label);
+				}});
+			});
+			</script>
+			<h1>Custom Style</h1>
+			<p>calendar widget with custom style</p>
+			<div id="pnlStyleContainer" style="width:100%;"></div>
+			<script>
+			$(function () {
+				$('#pnlStyleContainer').calendar({
+					color: '#ff0000',
+					months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+					days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+				});
+			});
+			</script>
+		</section>
+	</body>
+</html>
