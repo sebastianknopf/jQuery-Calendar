@@ -106,6 +106,9 @@
 					if(d == startDay) {
 						calendar[i][d] = currentDay++;
 						startDay++;
+					} else if (startDay === -1) {
+            					calendar[i][6] = currentDay++;
+            					startDay++;
 					}
 				} else if(currentDay <= lastDays[month]) {
 					calendar[i][d] = currentDay++;
