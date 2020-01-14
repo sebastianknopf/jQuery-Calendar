@@ -1,5 +1,5 @@
 /*
-* jQuery-Calendar Plugin v1.1.0
+* jQuery-Calendar Plugin v1.1.1
 *
 * 2018 (c) Sebastian Knopf
 * This software is licensed under the MIT license!
@@ -74,7 +74,12 @@
 	function selectMonth(next, options, month, year) {
 		var tmp = currentCalendar.find('.header-label').text().trim().split(' '), tmpYear = parseInt(tmp[1], 10);
 		
-		currentMonth = month || ((next) ? ((tmp[0] === options.months[options.months.length - 1]) ? 0 : options.months.indexOf(tmp[0]) + 1) : ((tmp[0] === options.months[0]) ? 11 : options.months.indexOf(tmp[0]) - 1));
+		if (month === 0){
+			currentMonth = month;
+		} else{
+			currentMonth = month || ((next) ? ((tmp[0] === options.months[options.months.length - 1]) ? 0 : options.months.indexOf(tmp[0]) + 1) : ((tmp[0] === options.months[0]) ? 11 : options.months.indexOf(tmp[0]) - 1));
+		}
+		
 		currentYear = year || ((next && currentMonth === 0) ? tmpYear + 1 : (!next && currentMonth === 11) ? tmpYear - 1 : tmpYear);
 		
 		var calendar = createCalendar(currentMonth, currentYear, options), frame = calendar.frame();
